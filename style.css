@@ -1,0 +1,218 @@
+@import url("https://fonts.googleapis.com/css2?family=Lato&display=swap");
+
+:root {
+  --nav-bg-color: rgb(100, 116, 139);
+  --nav-fg-color: #f1f5f9;
+  --popup-bg-color: #f1f5f9;
+  --popup-fg-color: #475569;
+  --popup-input-border-color: #4b5563;
+  --popup-btn-color: #22c55e;
+  --popup-btn-border-color: #15803d;
+  --book-card-bg-color: #cbd5e1;
+  --book-card-fg-color: #020617;
+  --add-btn-color: #15803d;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+/* Navbar Properties */
+nav {
+  color: var(--nav-fg-color);
+  background-color: var(--nav-bg-color);
+  background: linear-gradient(
+    90deg,
+    rgba(100, 116, 139, 1) 0%,
+    rgba(30, 41, 59, 1) 0%,
+    rgba(2, 6, 23, 1) 63%
+  );
+  margin-bottom: 2rem;
+  font-size: 3.5rem;
+  padding: 1%;
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: 3px 8px 30px rgba(0, 0, 0, 0.561);
+}
+
+@media only screen and (min-width: 900px) {
+  nav {
+    align-items: start;
+  }
+}
+
+.nav-title {
+  margin: 3px;
+}
+
+.nav-slogan {
+  font-size: 1rem;
+}
+
+/* Main Content START */
+main {
+  padding: 1rem;
+}
+
+/* Container */
+.books-cards-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+
+/* Book Card */
+.book-card {
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  background-color: var(--book-card-bg-color);
+  padding: 0.8rem;
+  border-radius: 0.2rem;
+  box-shadow: 2px 2px 10px black;
+  font-size: auto;
+  width: clamp(10rem, 12rem, 100%);
+  overflow-wrap: break-word;
+  animation: fadeIn 1s;
+  -webkit-animation: fadeIn 1s;
+}
+
+@media only screen and (min-width: 900px) {
+  .book-card {
+    flex: 1 1;
+    max-width: 20rem; 
+  }
+}
+
+@media only screen and (min-width: 1600px) {
+  .book-card {
+    max-width: 28rem;
+  }
+}
+
+.book-title,
+.book-author,
+.book-pages-number {
+  font-family: "Lato", sans-serif;
+  font-weight: bold;
+}
+
+input.book-have-read {
+  margin-top: auto;
+}
+
+button.book-remove-btn {
+  align-self: flex-end;
+  font-size: 2rem;
+  width: 3rem;
+  border-style: solid;
+  border-color: red;
+  border-radius: 8px;
+  background-color: lightcoral;
+}
+
+/*button.book-remove-btn img {}*/
+
+/* Main Content END */
+
+/* Book Popup */
+.popup {
+  background-color: var(--popup-bg-color);
+  color: var(--popup-fg-color);
+  position: fixed;
+  top: 55%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  box-shadow: 0px 10px 10px rgba(0, 34, 53, 0.416);
+  border-radius: 1rem;
+  padding: 1rem 1rem 2rem 1rem;
+  width: 40%;
+  min-width: 20rem;
+  font-size: 200%;
+  border: 1px solid black;
+  visibility: hidden;
+}
+
+.popup form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.4rem;
+  align-items: center;
+}
+
+.popup.show {
+  visibility: visible;
+  animation: fadeIn 3s;
+  -webkit-animation: fadeIn 1s;
+}
+
+input {
+  border-radius: 5px;
+  border: 1px solid var(--popup-input-border-color);
+  height: 2rem;
+  font-size: 1rem;
+  width: 60%;
+  max-width: 80%;
+}
+
+button[type="submit"] {
+  background-color: var(--popup-btn-color);
+  border: 2px solid var(--popup-btn-border-color);
+  border-radius: 6px;
+  font-size: 2rem;
+  width: 5rem;
+}
+
+input[type="checkbox"] {
+  width: 4rem;
+}
+
+/* Book add button */
+.add-book-btn {
+  position: fixed;
+  right: 2%;
+  bottom: 2%;
+}
+
+.add-book-btn button {
+  border-radius: 1rem;
+  border: 2px solid rgba(0, 0, 0, 0.576);
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.261);
+  background-color: var(--add-btn-color);
+}
+
+/* Components */
+.icon {
+  width: 50px;
+  size: 50px;
+  margin: auto;
+}
+
+/* Add animation (fade in the popup) */
+@-webkit-keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
